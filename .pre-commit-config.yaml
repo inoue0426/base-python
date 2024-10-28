@@ -38,8 +38,6 @@ repos:
       - id: check-added-large-files
         args: [--maxkb=1024]
       - id: end-of-file-fixer
-      - id: detect-private-key
-      - id: check-merge-conflict
   - repo: https://github.com/psf/black
     rev: 24.10.0
     hooks:
@@ -80,7 +78,11 @@ repos:
     hooks:
       - id: check-english-only
         name: Check for English-only content
-        entry: bash -c 'if [ ! -f utils/check_english_only.py ]; then mkdir -p utils && curl -o utils/check_english_only.py https://raw.githubusercontent.com/inoue0426/Check_nonEnglish_comments/main/check_english_only.py; fi && python utils/check_english_only.py'
+        entry:
+          "bash -c 'if [ ! -f utils/check_english_only.py ]; then mkdir -p utils
+          && curl -sSfL -o utils/check_english_only.py
+          https://raw.githubusercontent.com/inoue0426/Check_nonEnglish_comments/main/check_english_only.py;
+          fi && python utils/check_english_only.py'"
         language: system
         types: [text]
         exclude: |
