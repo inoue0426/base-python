@@ -80,7 +80,7 @@ repos:
     hooks:
       - id: check-english-only
         name: Check for English-only content
-        entry: bash -c 'if [ ! -f utils/check_english_only.py ]; then mkdir -p utils && curl -o utils/check_english_only.py https://raw.githubusercontent.com/your-username/your-repo-name/main/utils/check_english_only.py; fi && python utils/check_english_only.py'
+        entry: bash -c 'if [ ! -f utils/check_english_only.py ]; then mkdir -p utils && curl -o utils/check_english_only.py https://raw.githubusercontent.com/inoue0426/Check_nonEnglish_comments/main/check_english_only.py; fi && python utils/check_english_only.py'
         language: system
         types: [text]
         exclude: |
